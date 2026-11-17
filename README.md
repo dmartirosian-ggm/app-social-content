@@ -9,7 +9,7 @@ One place to hold and generate social content for all the apps
   - short vertical clips: 1080x1920 mp4 (silent audio track) plus a cover jpg
   - Pinterest pins: 1000x1500 png
 - `apps/<app>/` — one folder per app
-  - `brand.json` — name, call to action, colours, themes, fonts, logo
+  - `brand.json` — name, call to action (`cta`, `cta_sub`), colours, themes, fonts, logo
   - `clips/*.json` — one spec per clip
   - `pins/*.json` — one spec per pin
   - `captions.md` — captions keyed by spec id
@@ -56,4 +56,5 @@ Scene types:
 **Pin** — `id`, optional `theme`, `title`, optional `eyebrow`, `subtitle`, `footer`, and `steps`:
 a list of `{"title", "note"}` (or plain strings). Text shrinks to fit; around 4 to 7 steps reads best.
 
-Fonts: Inter (SIL Open Font License) is bundled in `engine/fonts/`.
+Fonts: Inter (SIL Open Font License) is bundled in `engine/fonts/` as the default. Spark uses its own
+site fonts, Fredoka and Nunito (both SIL Open Font License), from `apps/spark/fonts/`.

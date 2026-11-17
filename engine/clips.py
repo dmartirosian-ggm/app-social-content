@@ -73,9 +73,9 @@ def build_scene(brand: Brand, colors: dict, scene: dict, where: str) -> list[Ele
         if text:
             layers.append((text_layer(brand, text, "heading", 76, CONTENT_W, colors["ink"],
                                       max_h=420, min_size=48, align="center", line_gap=1.16), 0.25))
-        sub = scene.get("sub") or brand.handle
+        sub = scene.get("sub") or brand.cta_sub or brand.handle
         if sub:
-            layers.append((text_layer(brand, sub, "body", 44, CONTENT_W, colors["muted"], align="center"), 0.55))
+            layers.append((text_layer(brand, sub, "body", 44, CONTENT_W, colors["muted"], align="center", line_gap=1.35), 0.55))
         return _stack(layers, [70, 36])
     raise SpecError(f"{where}: unknown scene type {kind!r} (use title, list or cta)")
 

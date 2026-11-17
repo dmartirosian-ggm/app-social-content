@@ -2,6 +2,10 @@
 
 Keyed by spec id, so each caption matches the file of the same name in `out/spark/`.
 
+Link for bios and pin destinations: https://apps.apple.com/us/app/spark-chore-reward-chart/id6823762768
+
+Optional closing line for any caption: Spark is a free chore and reward chart app for ages 2–6. Check off a habit, watch the stars add up.
+
 ## Clips (TikTok / Reels / Shorts)
 
 Hashtags for all clips: `#toddlerlife #parentingtips #gentleparenting #toddlermom #tinyhabits`

@@ -51,6 +51,7 @@ class Brand:
         self.cfg = load_json(cfg_path)
         self.name = self.cfg.get("name", app)
         self.cta = self.cfg.get("cta", "")
+        self.cta_sub = self.cfg.get("cta_sub", "")
         self.handle = self.cfg.get("handle", "")
         self._fonts: dict = {}
         self.theme()  # validate default colours up front
@@ -193,7 +194,7 @@ def numbered_card(brand: Brand, colors: dict, n: int, title: str, note: str | No
     pad = round(title_size * 0.7)
     badge = round(title_size * 1.7)
     text_w = width - badge - pad * 3
-    budget = None if height is None else height - pad * 2
+    budget = None if height is None else height - 28  # content is centred, so little padding is needed
     note_l = text_layer(brand, note, "body", note_size, text_w, colors["muted"],
                         max_h=None if budget is None else budget // 2) if note else None
     used = (note_l.height + 6) if note_l else 0
