@@ -1,4 +1,4 @@
-"""CLI: python -m engine render <app> [--clips] [--pins] [--only ID ...]"""
+"""CLI: python -m engine render|upload <app> ...  (see README)"""
 from __future__ import annotations
 
 import argparse
@@ -7,6 +7,7 @@ import sys
 from .clips import render_clip
 from .common import APPS, OUT, ROOT, Brand, SpecError, load_json
 from .pins import render_pin
+from .upload import DEFAULT_BUCKET, upload
 
 KINDS = {"clips": render_clip, "pins": render_pin}
 
@@ -43,10 +44,24 @@ def main() -> int:
     r.add_argument("--clips", action="store_true", help="render only clips")
     r.add_argument("--pins", action="store_true", help="render only pins")
     r.add_argument("--only", nargs="+", default=[], metavar="ID", help="render only these spec ids")
+    u = sub.add_parser("upload", help="upload out/<app>/ and captions.md to Cloudflare R2")
+    u.add_argument("app", help="app folder name under apps/, or 'all'")
+    u.add_argument("--bucket", default=DEFAULT_BUCKET, help=f"R2 bucket (default: {DEFAULT_BUCKET})")
     args = parser.parse_args()
 
     if args.cmd == "list":
         print("\n".join(apps()))
+        return 0
+    if args.cmd == "upload":
+        try:
+            n = 0
+            for app in apps() if args.app == "all" else [args.app]:
+                print(f"{app}:")
+                n += len(upload(app, args.bucket))
+        except SpecError as e:
+            print(f"error: {e}", file=sys.stderr)
+            return 1
+        print(f"uploaded {n} file(s)")
         return 0
     kinds = [k for k in KINDS if getattr(args, k)] or list(KINDS)
     targets = apps() if args.app == "all" else [args.app]

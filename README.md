@@ -27,6 +27,18 @@ python -m engine render all                   # every app
 python -m engine list
 ```
 
+## Upload to Cloudflare R2
+
+Rendered files live in the `app-social-content` R2 bucket, laid out like `out/`:
+`<app>/clips/*.mp4|jpg`, `<app>/pins/*.png`, plus `<app>/captions.md`.
+
+```bash
+export CLOUDFLARE_API_TOKEN=...               # token with "Workers R2 Storage: Edit"
+python -m engine upload spark                 # or: all, or --bucket <name>
+```
+
+Uploading again overwrites files of the same name. It does not delete objects whose spec was removed.
+
 ## Add an app
 
 1. Copy `apps/spark` to `apps/<app>`.
