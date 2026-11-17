@@ -1,0 +1,43 @@
+{
+  "id": "habit-02-name-the-feeling",
+  "scenes": [
+    {
+      "type": "title",
+      "eyebrow": "Tiny habit #2",
+      "text": "Name the feeling first",
+      "sub": "For ages 2–4",
+      "duration": 3
+    },
+    {
+      "type": "title",
+      "eyebrow": "Instead of",
+      "text": "“Stop crying, it’s just a cup.”",
+      "duration": 3
+    },
+    {
+      "type": "title",
+      "eyebrow": "Try",
+      "text": "“You’re sad. You wanted the blue cup.”",
+      "sub": "Feeling first. Fixing second.",
+      "duration": 4
+    },
+    {
+      "type": "list",
+      "heading": "Why it helps",
+      "items": [
+        "They feel understood",
+        "They learn the word for it",
+        "Calm comes sooner"
+      ],
+      "duration": 5
+    },
+    {
+      "type": "cta",
+      "duration": 2.5
+    }
+  ],
+  "cover": {
+    "eyebrow": "Tiny habit #2",
+    "text": "Name the feeling first"
+  }
+}

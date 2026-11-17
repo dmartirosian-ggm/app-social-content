@@ -1,0 +1,34 @@
+{
+  "name": "Spark",
+  "cta": "Find more tiny habits in the Spark app",
+  "handle": "",
+  "logo": null,
+  "logo_is_wordmark": false,
+  "fonts": {
+    "heading": "Inter-ExtraBold.otf",
+    "bold": "Inter-Bold.otf",
+    "body": "Inter-Medium.otf"
+  },
+  "colors": {
+    "bg_top": "#FFF8EC",
+    "bg_bottom": "#FFE9CF",
+    "ink": "#2B2140",
+    "muted": "#6E6585",
+    "primary": "#FF7A3D",
+    "on_primary": "#FFFFFF",
+    "accent": "#FFC93C",
+    "card": "#FFFFFF"
+  },
+  "themes": {
+    "night": {
+      "bg_top": "#1F1B3A",
+      "bg_bottom": "#2E2757",
+      "ink": "#FFF8EC",
+      "muted": "#B9B3D9",
+      "primary": "#FFC93C",
+      "on_primary": "#2B2140",
+      "accent": "#7C6FE0",
+      "card": "#3A3270"
+    }
+  }
+}

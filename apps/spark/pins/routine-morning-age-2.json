@@ -1,0 +1,28 @@
+{
+  "id": "routine-morning-age-2",
+  "eyebrow": "Morning routine",
+  "title": "A calm morning for your 2-year-old",
+  "subtitle": "5 simple steps, same order every day",
+  "steps": [
+    {
+      "title": "Slow wake-up cuddle",
+      "note": "Two quiet minutes before anything else"
+    },
+    {
+      "title": "Diaper or potty, then dressed",
+      "note": "Offer two outfits and let them pick"
+    },
+    {
+      "title": "Breakfast together",
+      "note": "Sit down with them, even briefly"
+    },
+    {
+      "title": "Brush teeth",
+      "note": "They have a turn, then you finish"
+    },
+    {
+      "title": "Shoes on, out the door",
+      "note": "Same goodbye words every day"
+    }
+  ]
+}
