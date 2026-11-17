@@ -1,0 +1,12 @@
+{
+  "slug": "07-bedtime-story",
+  "habit": "Bedtime story",
+  "icon": "book",
+  "tip": "Pajamas on and teeth brushed, then Lily gets to pick the book.",
+  "done": "Seven stories and seven stars this week.",
+  "child": {
+    "name": "Lily",
+    "color": "#FFB4A2"
+  },
+  "days_done": 7
+}

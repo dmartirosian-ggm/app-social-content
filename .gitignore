@@ -1,0 +1,14 @@
+# Rendered videos and images. Re-make them from the JSON specs any time.
+out/
+*.mp4
+*.wav
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,36 @@
+{
+  "slug": "bedtime-age-4",
+  "kind": "bedtime",
+  "title": "Bedtime routine\nfor a 4 year old",
+  "subtitle": "Seven steps from playtime to lights out, with a star for each one.",
+  "steps": [
+    [
+      "Tidy up toys",
+      "toys"
+    ],
+    [
+      "Bath time",
+      "bath"
+    ],
+    [
+      "Pajamas on",
+      "shirt"
+    ],
+    [
+      "Brush teeth",
+      "tooth"
+    ],
+    [
+      "Use the potty",
+      "potty"
+    ],
+    [
+      "Bedtime story",
+      "book"
+    ],
+    [
+      "Lights out",
+      "sleep"
+    ]
+  ]
+}

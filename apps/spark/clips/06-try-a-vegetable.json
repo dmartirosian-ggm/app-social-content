@@ -1,0 +1,12 @@
+{
+  "slug": "06-try-a-vegetable",
+  "habit": "Try a vegetable",
+  "icon": "vegetables",
+  "tip": "One bite counts. Sam doesn't have to like it, just try it.",
+  "done": "Sam tried a vegetable every day this week.",
+  "child": {
+    "name": "Sam",
+    "color": "#A8DADC"
+  },
+  "days_done": 7
+}

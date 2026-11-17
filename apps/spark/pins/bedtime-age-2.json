@@ -1,0 +1,28 @@
+{
+  "slug": "bedtime-age-2",
+  "kind": "bedtime",
+  "title": "Bedtime routine\nfor a 2 year old",
+  "subtitle": "The same five steps every night, in the same order.",
+  "steps": [
+    [
+      "Bath time",
+      "bath"
+    ],
+    [
+      "Pajamas on",
+      "shirt"
+    ],
+    [
+      "Brush teeth",
+      "tooth"
+    ],
+    [
+      "Bedtime story",
+      "book"
+    ],
+    [
+      "Lights out",
+      "sleep"
+    ]
+  ]
+}

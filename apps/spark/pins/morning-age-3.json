@@ -1,0 +1,28 @@
+{
+  "slug": "morning-age-3",
+  "kind": "morning",
+  "title": "Morning routine\nfor a 3 year old",
+  "subtitle": "Five steps before you head out the door, with a star for each one.",
+  "steps": [
+    [
+      "Use the potty",
+      "potty"
+    ],
+    [
+      "Get dressed",
+      "shirt"
+    ],
+    [
+      "Eat breakfast",
+      "bowl"
+    ],
+    [
+      "Brush teeth",
+      "tooth"
+    ],
+    [
+      "Put on shoes",
+      "shoes"
+    ]
+  ]
+}

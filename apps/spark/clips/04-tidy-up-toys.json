@@ -1,0 +1,12 @@
+{
+  "slug": "04-tidy-up-toys",
+  "habit": "Tidy up toys",
+  "icon": "toys",
+  "tip": "Before dinner, every toy goes back in its bin. We set a timer and try to beat it.",
+  "done": "Noah tidied up every day this week.",
+  "child": {
+    "name": "Noah",
+    "color": "#FFC93C"
+  },
+  "days_done": 7
+}
