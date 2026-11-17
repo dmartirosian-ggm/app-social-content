@@ -16,6 +16,7 @@ from .common import APPS, OUT, SpecError
 
 API = "https://api.cloudflare.com/client/v4"
 DEFAULT_BUCKET = "app-social-content"
+PUBLIC_BASE = {"app-social-content": "https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev"}
 
 
 def _call(method: str, url: str, token: str, data: bytes | None = None, content_type: str | None = None) -> dict:
@@ -57,6 +58,6 @@ def upload(app: str, bucket: str = DEFAULT_BUCKET) -> list[str]:
     for path, key in files:
         ctype = mimetypes.guess_type(path.name)[0] or ("text/markdown" if path.suffix == ".md" else "application/octet-stream")
         _call("PUT", base + urllib.parse.quote(key), token, path.read_bytes(), ctype)
-        print(f"  r2://{bucket}/{key}")
+        print(f"  {PUBLIC_BASE[bucket]}/{key}" if bucket in PUBLIC_BASE else f"  r2://{bucket}/{key}")
         keys.append(key)
     return keys

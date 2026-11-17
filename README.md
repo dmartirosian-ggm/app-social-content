@@ -37,6 +37,9 @@ export CLOUDFLARE_API_TOKEN=...               # token with "Workers R2 Storage: 
 python -m engine upload spark                 # or: all, or --bucket <name>
 ```
 
+The bucket is public, so every file has a URL a scheduler can pull from:
+`https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/<app>/clips/<id>.mp4` (same pattern for pins and covers).
+
 Uploading again overwrites files of the same name. It does not delete objects whose spec was removed.
 
 ## Add an app
