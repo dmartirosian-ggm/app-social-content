@@ -1,0 +1,24 @@
+{
+  "slug": "morning-age-2",
+  "kind": "morning",
+  "title": "Morning routine\nfor a 2 year old",
+  "subtitle": "Four small steps to start the day. A star goes up for each one.",
+  "steps": [
+    [
+      "Use the potty",
+      "potty"
+    ],
+    [
+      "Get dressed",
+      "shirt"
+    ],
+    [
+      "Eat breakfast",
+      "bowl"
+    ],
+    [
+      "Brush teeth",
+      "tooth"
+    ]
+  ]
+}

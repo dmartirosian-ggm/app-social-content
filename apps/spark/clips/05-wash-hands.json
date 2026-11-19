@@ -1,0 +1,12 @@
+{
+  "slug": "05-wash-hands",
+  "habit": "Wash hands before meals",
+  "icon": "hands",
+  "tip": "Hands get washed before we sit down to eat, and the star comes right after.",
+  "done": "Ella washed up before every meal this week.",
+  "child": {
+    "name": "Ella",
+    "color": "#C9B8FF"
+  },
+  "days_done": 7
+}

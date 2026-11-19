@@ -1,75 +1,97 @@
-# app-social-content
+# App social content
 
-One place to hold and generate social content for all the apps
-(Spark, Ayah Daily, Linedrive, Texas State Park Travelers, Pale Pages, Beau).
+Short videos and Pinterest pins for GBY Media's apps, made from small text files.
+Each app gets its own folder with its colors, fonts, icons and post ideas. The code that
+turns those into finished files is shared, so a new app only needs its own look and its
+own layouts.
 
-## Layout
-
-- `engine/` — shared Python renderer, driven by JSON specs
-  - short vertical clips: 1080x1920 mp4 (silent audio track) plus a cover jpg
-  - Pinterest pins: 1000x1500 png
-- `apps/<app>/` — one folder per app
-  - `brand.json` — name, call to action (`cta`, `cta_sub`), colours, themes, fonts, logo
-  - `clips/*.json` — one spec per clip
-  - `pins/*.json` — one spec per pin
-  - `captions.md` — captions keyed by spec id
-- `out/<app>/` — rendered files (gitignored)
-
-## Render
-
-Needs Python 3.10+, Pillow (`pip install -r requirements.txt`) and `ffmpeg` on the PATH.
-
-```bash
-python -m engine render spark                 # everything for one app
-python -m engine render spark --pins          # only pins (or --clips)
-python -m engine render spark --only habit-01-two-choices
-python -m engine render all                   # every app
-python -m engine list
+```
+engine/          shared code: text, animation, confetti, sound, saving PNG/JPG/MP4, upload
+apps/spark/      Spark: Chore & Reward Chart
+  brand.py         colors, fonts, icons, and shapes like stars and cards
+  clip.py          the 7-second "tiny habit of the day" video
+  pin.py           the weekly routine chart pin
+  clips/*.json     one file per video
+  pins/*.json      one file per pin
+  captions.md      captions, hashtags and pin text for the first week
+  fonts/           the app's fonts
+out/             finished files land here (not saved in git)
 ```
 
-## Upload to Cloudflare R2
+## Setup (once)
 
-Rendered files live in the `app-social-content` R2 bucket, laid out like `out/`:
-`<app>/clips/*.mp4|jpg`, `<app>/pins/*.png`, plus `<app>/captions.md`.
+You need Python 3 and ffmpeg. Then:
 
-```bash
-export CLOUDFLARE_API_TOKEN=...               # token with "Workers R2 Storage: Edit"
-python -m engine upload spark                 # or: all, or --bucket <name>
+```
+pip install -r requirements.txt
 ```
 
-The bucket is public, so every file has a URL a scheduler can pull from:
-`https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/<app>/clips/<id>.mp4` (same pattern for pins and covers).
+Install each app's fonts on the computer (for Spark, the six files in `apps/spark/fonts/`;
+on Windows select them, right-click, Install). CairoSVG also needs the Cairo library: on a
+Mac run `brew install cairo`, on Windows install the GTK3 runtime or use WSL.
 
-Uploading again overwrites files of the same name. It does not delete objects whose spec was removed.
+## Make the files
 
-## Add an app
+Run these from the top folder of the repo.
 
-1. Copy `apps/spark` to `apps/<app>`.
-2. Edit `brand.json`: name, `cta`, colours. To use a real logo, put the png in the app folder and set
-   `"logo": "logo.png"` (add `"logo_is_wordmark": true` if the image already contains the name).
-   Custom fonts work the same way: drop the font file in the app folder and name it under `fonts`.
-3. Replace the specs in `clips/` and `pins/`, and rewrite `captions.md`.
-4. Run `python -m engine render <app>`.
+```
+python apps/spark/clip.py                                  # every Spark video
+python apps/spark/pin.py                                   # every Spark pin
+python apps/spark/clip.py apps/spark/clips/01-brush-teeth.json   # just one
+```
 
-## Spec reference
+Videos go to `out/spark/clips/` (an MP4 plus a cover JPG), pins to `out/spark/pins/`.
+Add `--out some/folder` to put them somewhere else. The same file always gives the same
+video, so nothing needs to be kept once it's posted.
 
-**brand.json colours** (all required, `#RRGGBB`): `bg_top`, `bg_bottom`, `ink`, `muted`, `primary`,
-`on_primary`, `accent`, `card`. A named entry under `themes` overrides any of them; a spec opts in with
-`"theme": "night"`.
+To make a new post, copy one of the JSON files, change the words, and run the command
+again. The fields each file takes are listed at the top of that app's `clip.py` and `pin.py`.
 
-**Clip** — `id` (defaults to the file name), optional `theme`, `scenes`, optional `cover`.
-Scene types:
+## Publish (public links)
 
-| type | fields |
-| --- | --- |
-| `title` | `text`, optional `eyebrow`, `sub`, `duration` (default 3s) |
-| `list` | `items` (strings), optional `heading`, `duration` (default 5s) |
-| `cta` | optional `text` (defaults to the brand `cta`), `sub`, `duration` (default 2.5s) |
+Finished files are published to a public Cloudflare R2 bucket, so Postiz or any other tool
+can fetch them by URL. The link is always the same shape:
 
-`cover` takes the same fields as a `title` scene; without it the cover is the first scene.
+```
+https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/<app>/clips/<slug>.mp4
+https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/<app>/clips/<slug>-cover.jpg
+https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/<app>/pins/<slug>.png
+https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/<app>/captions.md
+```
 
-**Pin** — `id`, optional `theme`, `title`, optional `eyebrow`, `subtitle`, `footer`, and `steps`:
-a list of `{"title", "note"}` (or plain strings). Text shrinks to fit; around 4 to 7 steps reads best.
+**Automatic:** push a change under `apps/` or `engine/` on any branch. GitHub Actions
+(`.github/workflows/publish.yml`) renders every app and uploads the files, usually within a
+few minutes. The run's summary lists every link. It needs one repository secret,
+`CLOUDFLARE_API_TOKEN` (a Cloudflare API token with "Workers R2 Storage: Edit").
 
-Fonts: Inter (SIL Open Font License) is bundled in `engine/fonts/` as the default. Spark uses its own
-site fonts, Fredoka and Nunito (both SIL Open Font License), from `apps/spark/fonts/`.
+**By hand:**
+
+```
+export CLOUDFLARE_API_TOKEN=...
+python -m engine.upload            # everything in out/
+python -m engine.upload spark      # one app
+```
+
+Publishing again replaces files of the same name. It never deletes anything from the bucket.
+
+## Add the next app
+
+1. Copy `apps/spark/` to a new folder named after the app, for example `apps/ayah-daily/`.
+2. Delete the copied `clips/`, `pins/` and `captions.md` contents, and put the new app's
+   fonts in `fonts/`.
+3. In `brand.py`, change the app name, tagline, colors, icons and the font list to match
+   the new app. The shapes at the bottom (stars, cards, pills) can be changed or replaced
+   to fit its style.
+4. Change the layouts in `clip.py` and `pin.py`, or replace them with the new app's own
+   formats (a verse card, a level preview, a park photo card). Keep the last few lines
+   that read the JSON files and save the output, since that part is the same for every app.
+5. Add a few JSON files and run `python apps/<app>/clip.py` to check the result.
+
+Anything two apps end up needing the same way belongs in `engine/`, so it's written once.
+
+## Notes
+
+- The sound in each video is made in code (a soft chord and little plucks), so there's
+  nothing to license.
+- This repo makes the files and publishes them to public links. Posting and scheduling
+  happen in Postiz, using those links.

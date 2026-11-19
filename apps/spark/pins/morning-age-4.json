@@ -1,0 +1,32 @@
+{
+  "slug": "morning-age-4",
+  "kind": "morning",
+  "title": "Morning routine\nfor a 4 year old",
+  "subtitle": "One star for each step on school mornings.",
+  "steps": [
+    [
+      "Use the potty",
+      "potty"
+    ],
+    [
+      "Get dressed",
+      "shirt"
+    ],
+    [
+      "Eat breakfast",
+      "bowl"
+    ],
+    [
+      "Brush teeth",
+      "tooth"
+    ],
+    [
+      "Put on shoes",
+      "shoes"
+    ],
+    [
+      "Pack backpack",
+      "backpack"
+    ]
+  ]
+}

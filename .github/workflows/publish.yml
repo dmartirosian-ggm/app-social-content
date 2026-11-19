@@ -1,0 +1,62 @@
+# Renders every app's clips and pins and publishes them to the public R2 bucket.
+# Runs on any push that touches specs, layouts or the engine, on every branch.
+name: Publish social content
+
+on:
+  push:
+    paths:
+      - "apps/**"
+      - "engine/**"
+      - "requirements.txt"
+      - ".github/workflows/publish.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install ffmpeg, Cairo and Python packages
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libcairo2
+          pip install -q -r requirements.txt
+      - name: Install each app's fonts
+        run: |
+          mkdir -p ~/.fonts
+          cp apps/*/fonts/* ~/.fonts/ 2>/dev/null || true
+          fc-cache -f
+      - name: Render
+        run: |
+          for script in apps/*/clip.py apps/*/pin.py; do
+            [ -f "$script" ] || continue
+            echo "::group::$script"
+            python "$script"
+            echo "::endgroup::"
+          done
+      - name: Upload to R2
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::Add a repository secret named CLOUDFLARE_API_TOKEN (Cloudflare token with Workers R2 Storage: Edit)."
+            exit 1
+          fi
+          python -m engine.upload | tee urls.txt
+          {
+            echo "### Published files"
+            echo
+            sed 's/^/- /' urls.txt
+          } >> "$GITHUB_STEP_SUMMARY"

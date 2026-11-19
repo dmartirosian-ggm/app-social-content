@@ -1,0 +1,12 @@
+{
+  "slug": "01-brush-teeth",
+  "habit": "Brush teeth",
+  "icon": "tooth",
+  "tip": "We put on one song and brush until it ends, and Mia gets to pick the song.",
+  "done": "Mia got a star for brushing every day this week.",
+  "child": {
+    "name": "Mia",
+    "color": "#FFB4A2"
+  },
+  "days_done": 7
+}

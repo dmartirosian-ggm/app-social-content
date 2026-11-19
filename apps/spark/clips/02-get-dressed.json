@@ -1,0 +1,12 @@
+{
+  "slug": "02-get-dressed",
+  "habit": "Get dressed",
+  "icon": "shirt",
+  "tip": "We lay out tomorrow's clothes the night before, so the morning is just putting them on.",
+  "done": "Leo got dressed every morning this week.",
+  "child": {
+    "name": "Leo",
+    "color": "#A8DADC"
+  },
+  "days_done": 7
+}

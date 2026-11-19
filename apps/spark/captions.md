@@ -1,77 +1,77 @@
-# Spark captions
+# Spark: first week of posts
 
-Keyed by spec id, so each caption matches the file of the same name in `out/spark/`.
+Clips go to Instagram Reels, TikTok and YouTube Shorts with the same caption.
+Pins go to Pinterest with the title, description and link below.
+App Store link for bios and pins: https://apps.apple.com/us/app/spark-chore-reward-chart/id6823762768
 
-Link for bios and pin destinations: https://apps.apple.com/us/app/spark-chore-reward-chart/id6823762768
+## Tiny habit of the day (one clip a day)
 
-Optional closing line for any caption: Spark is a free chore and reward chart app for ages 2–6. Check off a habit, watch the stars add up.
+**Day 1: Brush teeth** (`01-brush-teeth.mp4`)
+We put on one song and brush until it ends. Getting to pick the song makes a big difference, and the star at the end helps too. What song does your little one brush to?
 
-## Clips (TikTok / Reels / Shorts)
+Spark is a free chore and reward chart for parents of kids ages 2 to 6. It's on the App Store.
+#toddlerroutine #rewardchart #toddlermom #brushingteeth
 
-Hashtags for all clips: `#toddlerlife #parentingtips #gentleparenting #toddlermom #tinyhabits`
+**Day 2: Get dressed** (`02-get-dressed.mp4`)
+Laying clothes out the night before has saved so many of our mornings. The outfit is already picked when they wake up, so getting dressed is one easy star.
 
-### habit-01-two-choices
+Spark is a free chore and reward chart for parents of kids ages 2 to 6. It's on the App Store.
+#morningroutine #toddlerroutine #rewardchart #momlife
 
-Asking “do you want to get dressed?” invites a no. Try “red shirt or blue shirt?” instead. Both answers get you out the door. Save this for the next tricky moment.
+**Day 3: Use the potty** (`03-use-the-potty.mp4`)
+During potty training we give a star for every try, not only the wins. Sitting on the potty is the habit we're building, so that's what earns the star.
 
-### habit-02-name-the-feeling
+Spark is a free chore and reward chart for parents of kids ages 2 to 6. It's on the App Store.
+#pottytraining #pottytrainingtips #toddlermom #rewardchart
 
-Before you fix it, name it. “You’re sad. You wanted the blue cup.” Feeling first, fixing second. Save this for the next tricky moment.
+**Day 4: Tidy up toys** (`04-tidy-up-toys.mp4`)
+Before dinner, every toy goes back in its bin. We set a timer and try to beat it, and it turns cleanup into a little game.
 
-### habit-03-two-minute-warning
+Spark is a free chore and reward chart for parents of kids ages 2 to 6. It's on the App Store.
+#chorechart #choresforkids #toddlerroutine #momlife
 
-Leaving the park is easier when it isn’t a surprise. “Two more minutes, then shoes.” Then follow through. Save this for the next tricky moment.
+**Day 5: Wash hands before meals** (`05-wash-hands.mp4`)
+Hands get washed before we sit down to eat, every meal. It's a small one, but doing it the same way every time means nobody has to argue about it.
 
-### habit-04-say-what-to-do
+Spark is a free chore and reward chart for parents of kids ages 2 to 6. It's on the App Store.
+#toddlerroutine #rewardchart #preschoolmom #momlife
 
-Swap “don’t run” for “walking feet, please.” Tell them what to do, not what to stop. Save this for the next tricky moment.
+**Day 6: Try a vegetable** (`06-try-a-vegetable.mp4`)
+Our rule is one bite. They don't have to like it, they just have to try it, and the try is what gets the star.
 
-### habit-05-one-job-at-a-time
+Spark is a free chore and reward chart for parents of kids ages 2 to 6. It's on the App Store.
+#pickyeater #toddlermeals #rewardchart #toddlermom
 
-“Shoes, coat, bag, let’s go” is four jobs. Give one. Wait. Then the next. Save this for the next tricky moment.
+**Day 7: Bedtime story** (`07-bedtime-story.mp4`)
+Pajamas on and teeth brushed, and then they get to pick the book. It's the last star of the day and the one they look forward to most.
 
-### habit-06-ten-minutes-their-way
+Spark is a free chore and reward chart for parents of kids ages 2 to 6. It's on the App Store.
+#bedtimeroutine #bedtimestory #toddlerroutine #rewardchart
 
-Ten minutes, phone away, they pick the game. Small enough to do every day. Save this for the next tricky moment.
+## Routine chart pins (Pinterest)
 
-### habit-07-notice-the-effort
+**Morning routine for a 2 year old** (`morning-age-2.png`)
+Title: Morning routine chart for a 2 year old
+Description: A simple four-step morning routine for a two year old: use the potty, get dressed, eat breakfast and brush teeth. Save it for the fridge, or set up the same routine in Spark, a free chore and reward chart app where each step earns a star.
 
-Trade “good job” for what you actually saw: “You kept trying until it fit.” Save this for the next tricky moment.
+**Morning routine for a 3 year old** (`morning-age-3.png`)
+Title: Morning routine chart for a 3 year old
+Description: Five steps to get a three year old out the door: use the potty, get dressed, eat breakfast, brush teeth and put on shoes. Save it for the fridge, or set up the same routine in Spark, a free chore and reward chart app where each step earns a star.
 
-## Pins (Pinterest)
+**Morning routine for a 4 year old** (`morning-age-4.png`)
+Title: School morning routine chart for a 4 year old
+Description: A school morning routine for a four year old, from the potty to packing the backpack. Save it for the fridge, or set up the same routine in Spark, a free chore and reward chart app where each step earns a star.
 
-### routine-morning-age-2
+**Bedtime routine for a 2 year old** (`bedtime-age-2.png`)
+Title: Bedtime routine chart for a 2 year old
+Description: Bath, pajamas, teeth, a story and lights out. Five steps in the same order every night. Save it for the fridge, or set up the same routine in Spark, a free chore and reward chart app where each step earns a star.
 
-**Title:** A calm morning routine for 2-year-olds
+**Bedtime routine for a 3 year old** (`bedtime-age-3.png`)
+Title: Bedtime routine chart for a 3 year old
+Description: A six-step bedtime routine for a three year old that starts with putting the toys away. Save it for the fridge, or set up the same routine in Spark, a free chore and reward chart app where each step earns a star.
 
-**Description:** Five simple steps in the same order every day, from a slow wake-up cuddle to shoes on and out the door. Save this toddler morning routine for tomorrow.
+**Bedtime routine for a 4 year old** (`bedtime-age-4.png`)
+Title: Bedtime routine chart for a 4 year old
+Description: Seven steps from playtime to lights out for a four year old. Save it for the fridge, or set up the same routine in Spark, a free chore and reward chart app where each step earns a star.
 
-### routine-morning-age-3
-
-**Title:** A smooth morning routine for 3-year-olds
-
-**Description:** Six steps your 3-year-old can start to help with: potty, getting dressed, breakfast, teeth and out the door. Save for calmer mornings.
-
-### routine-morning-age-4
-
-**Title:** A can-do morning routine for 4-year-olds
-
-**Description:** Six steps a 4-year-old can mostly do themselves, from making the bed to packing their bag. Pair it with a picture chart.
-
-### routine-bedtime-age-2
-
-**Title:** A gentle bedtime routine for 2-year-olds
-
-**Description:** Five steps in the same order every night: tidy-up, bath, pajamas and teeth, two books, one song. Save this toddler bedtime routine.
-
-### routine-bedtime-age-3
-
-**Title:** A calm bedtime routine for 3-year-olds
-
-**Description:** Six steps for an easier bedtime, with a five-minute warning, two books they choose and a quick chat about the day.
-
-### routine-bedtime-age-4
-
-**Title:** A wind-down bedtime routine for 4-year-olds
-
-**Description:** Six steps for preschoolers: set out tomorrow’s clothes, bath, teeth, reading, three good things, lights out.
+Link for every pin: https://apps.apple.com/us/app/spark-chore-reward-chart/id6823762768

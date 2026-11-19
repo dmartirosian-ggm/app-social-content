@@ -1,1 +1,3 @@
-Pillow>=10
+cairosvg
+pillow
+numpy

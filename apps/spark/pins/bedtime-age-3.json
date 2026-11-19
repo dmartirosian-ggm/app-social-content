@@ -1,0 +1,32 @@
+{
+  "slug": "bedtime-age-3",
+  "kind": "bedtime",
+  "title": "Bedtime routine\nfor a 3 year old",
+  "subtitle": "Toys away first, then the wind-down starts.",
+  "steps": [
+    [
+      "Tidy up toys",
+      "toys"
+    ],
+    [
+      "Bath time",
+      "bath"
+    ],
+    [
+      "Pajamas on",
+      "shirt"
+    ],
+    [
+      "Brush teeth",
+      "tooth"
+    ],
+    [
+      "Bedtime story",
+      "book"
+    ],
+    [
+      "Lights out",
+      "sleep"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "03-use-the-potty",
+  "habit": "Use the potty",
+  "icon": "potty",
+  "tip": "Every try gets a star, whether anything happens or not.",
+  "done": "Ava earned a star every day this week.",
+  "child": {
+    "name": "Ava",
+    "color": "#7FD1AE"
+  },
+  "days_done": 7
+}
