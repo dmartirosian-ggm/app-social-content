@@ -64,8 +64,10 @@ https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/index.html
 It is rebuilt on every publish (`python -m engine.dashboard` writes `out/index.html`).
 
 **Automatic:** push a change under `apps/` or `engine/` on any branch. GitHub Actions
-(`.github/workflows/publish.yml`) renders every app and uploads the files, usually within a
-few minutes. The run's summary lists every link. It needs one repository secret,
+(`.github/workflows/publish.yml`) renders and uploads the files, usually within a few
+minutes. A push that only changes `apps/<app>/` publishes just that app, so branches working
+on different apps don't overwrite each other; a push that changes `engine/` republishes every
+app in that branch. The dashboard shows every app that has ever been published. The run's summary lists every link. It needs one repository secret,
 `CLOUDFLARE_API_TOKEN` (a Cloudflare API token with "Workers R2 Storage: Edit").
 
 **By hand:**

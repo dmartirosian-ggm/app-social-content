@@ -6,7 +6,8 @@
 
 Uploads out/<app>/** to <bucket>/<app>/..., plus apps/<app>/captions.md, and prints the
 public URL of each file. With no app named, it also publishes the review dashboard
-(out/index.html, from python -m engine.dashboard) as index.html. Needs CLOUDFLARE_API_TOKEN (a Cloudflare API token with
+(out/index.html, from python -m engine.dashboard) as index.html. Every run refreshes
+apps.json, the list of apps in the bucket that the dashboard shows. Needs CLOUDFLARE_API_TOKEN (a Cloudflare API token with
 "Workers R2 Storage: Edit"). CLOUDFLARE_ACCOUNT_ID is optional; it is looked up if unset.
 """
 import argparse
@@ -48,6 +49,24 @@ def _account(token):
     return accounts[0]["id"]
 
 
+def apps_in_bucket(account, bucket, token):
+    """Names of every app that has a manifest.json in the bucket, whichever branch put it there."""
+    apps, cursor = set(), None
+    while True:
+        url = f"{API}/accounts/{account}/r2/buckets/{bucket}/objects?per_page=1000"
+        if cursor:
+            url += "&cursor=" + urllib.parse.quote(cursor)
+        page = _call("GET", url, token)
+        for obj in page.get("result") or []:
+            parts = obj.get("key", "").split("/")
+            if len(parts) == 2 and parts[1] == "manifest.json":
+                apps.add(parts[0])
+        info = page.get("result_info") or {}
+        cursor = info.get("cursor")
+        if not cursor or not info.get("is_truncated"):
+            return sorted(apps)
+
+
 def files_for(app):
     """(local path, bucket key) for everything rendered for one app, plus its captions."""
     out_dir = os.path.join(ROOT, "out", app)
@@ -81,7 +100,8 @@ def main():
     dashboard = os.path.join(out_root, "index.html")  # written by: python -m engine.dashboard
     if not a.apps and os.path.exists(dashboard):
         pairs.append((dashboard, "index.html"))
-    base = f"{API}/accounts/{_account(token)}/r2/buckets/{a.bucket}/objects/"
+    account = _account(token)
+    base = f"{API}/accounts/{account}/r2/buckets/{a.bucket}/objects/"
     public = PUBLIC_BASE.get(a.bucket, f"r2://{a.bucket}")
     for path, key in pairs:
         ctype = mimetypes.guess_type(path)[0] or ("text/markdown" if path.endswith(".md") else "application/octet-stream")
@@ -90,6 +110,9 @@ def main():
         with open(path, "rb") as f:
             _call("PUT", base + urllib.parse.quote(key), token, f.read(), ctype)
         print(f"{public}/{key}")
+    # The dashboard reads this to know which apps exist, across every branch that has published.
+    listing = json.dumps({"apps": apps_in_bucket(account, a.bucket, token)}).encode()
+    _call("PUT", base + "apps.json", token, listing, "application/json")
     print(f"uploaded {len(pairs)} file(s)", file=sys.stderr)
 
 

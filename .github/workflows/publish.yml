@@ -1,5 +1,7 @@
-# Renders every app's clips and pins and publishes them to the public R2 bucket.
-# Runs on any push that touches specs, layouts or the engine, on every branch.
+# Renders clips and pins and publishes them, with the review dashboard, to the public R2 bucket.
+# Runs on every branch. A push that only changes apps/<app>/ publishes just that app, so
+# branches working on different apps do not overwrite each other. A push that changes the
+# shared engine, or a manual run, publishes every app in that branch.
 name: Publish social content
 
 on:
@@ -24,11 +26,25 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Work out which apps to publish
+        id: apps
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          list="$(.github/scripts/changed-apps.sh "$EVENT" "$BEFORE" "$DEFAULT_BRANCH")"
+          echo "Publishing: ${list:-nothing}"
+          echo "list=$list" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5
+        if: steps.apps.outputs.list != ''
         with:
           python-version: "3.12"
           cache: pip
       - name: Install ffmpeg, Cairo and Python packages
+        if: steps.apps.outputs.list != ''
         timeout-minutes: 6
         env:
           DEBIAN_FRONTEND: noninteractive
@@ -38,21 +54,29 @@ jobs:
           $APT install -y -qq --no-install-recommends ffmpeg libcairo2
           pip install -q -r requirements.txt
       - name: Install each app's fonts
+        if: steps.apps.outputs.list != ''
         run: |
           mkdir -p ~/.fonts
           cp apps/*/fonts/* ~/.fonts/ 2>/dev/null || true
           fc-cache -f
       - name: Render
+        if: steps.apps.outputs.list != ''
+        env:
+          APPS: ${{ steps.apps.outputs.list }}
         run: |
-          for script in apps/*/clip.py apps/*/pin.py; do
-            [ -f "$script" ] || continue
-            echo "::group::$script"
-            python "$script"
-            echo "::endgroup::"
+          for app in $APPS; do
+            for script in "apps/$app/clip.py" "apps/$app/pin.py"; do
+              [ -f "$script" ] || continue
+              echo "::group::$script"
+              python "$script"
+              echo "::endgroup::"
+            done
           done
       - name: Build the review dashboard
+        if: steps.apps.outputs.list != ''
         run: python -m engine.dashboard
       - name: Upload to R2
+        if: steps.apps.outputs.list != ''
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |

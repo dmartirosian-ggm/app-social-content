@@ -1,10 +1,11 @@
 """Build the review dashboard: one page showing every rendered clip and pin with its caption.
 
-    python -m engine.dashboard        # writes out/index.html
+    python -m engine.dashboard        # writes out/<app>/manifest.json and out/index.html
 
-Reads what is actually in out/<app>/, plus each app's specs and captions.md. The page uses
-relative links, so it works opened from disk and from the root of the public bucket, where
-engine.upload publishes it as index.html.
+Each app gets a manifest listing what was rendered for it, with captions. The page loads
+apps.json (written by engine.upload from what is in the bucket) and every app's manifest,
+so apps published from different branches all show up together. Opened from disk, it
+falls back to the apps rendered locally.
 """
 import datetime
 import html
@@ -128,7 +129,7 @@ h2 span{color:var(--muted);font-weight:500;font-size:14px;text-transform:none}
 </div></header>
 <main><div class="wrap" id="main"></div></main>
 <script>
-const DATA = __DATA__;
+let DATA = __DATA__;  // apps rendered in this build; replaced by the bucket's manifests when reachable
 const state = {app: "all", kind: "all"};
 const el = (tag, attrs = {}, ...kids) => {
   const n = document.createElement(tag);
@@ -136,14 +137,13 @@ const el = (tag, attrs = {}, ...kids) => {
   n.append(...kids);
   return n;
 };
-const v = DATA.version ? "?v=" + DATA.version : "";
 const abs = rel => new URL(rel, location.href).href.split("?")[0];
 function copy(btn, text) {
   const done = () => { const t = btn.textContent; btn.textContent = "Copied"; setTimeout(() => btn.textContent = t, 1200); };
   if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => prompt("Copy:", text));
   else prompt("Copy:", text);
 }
-function card(item) {
+function card(item, v) {
   let media;
   if (item.kind === "clip") {
     media = el("video", {class: "media", controls: "", playsinline: "", preload: "none", src: item.src + v});
@@ -166,10 +166,11 @@ function chip(label, group, value) {
   b.onclick = () => { state[group] = value; render(); };
   return b;
 }
+const name = a => a.app.replace(/-/g, " ");
 function render() {
   const f = document.getElementById("filters"); f.replaceChildren();
   if (DATA.apps.length > 1) {
-    f.append(chip("All apps", "app", "all"), ...DATA.apps.map(a => chip(a.app, "app", a.app)), el("span", {class: "sep"}));
+    f.append(chip("All apps", "app", "all"), ...DATA.apps.map(a => chip(name(a), "app", a.app)), el("span", {class: "sep"}));
   }
   f.append(chip("Everything", "kind", "all"), chip("Clips", "kind", "clip"), chip("Pins", "kind", "pin"));
   const main = document.getElementById("main"); main.replaceChildren();
@@ -181,13 +182,28 @@ function render() {
     shown += items.length;
     const clips = items.filter(i => i.kind === "clip").length, pins = items.length - clips;
     const counts = [clips && clips + " clip" + (clips > 1 ? "s" : ""), pins && pins + " pin" + (pins > 1 ? "s" : "")].filter(Boolean).join(", ");
-    main.append(el("h2", {}, a.app.replace(/-/g, " ") + " ", el("span", {text: counts})), el("div", {class: "grid"}, ...items.map(card)));
+    const when = a.built ? " · published " + new Date(a.built).toLocaleString([], {dateStyle: "medium", timeStyle: "short"}) : "";
+    const v = a.version ? "?v=" + a.version : "";
+    main.append(el("h2", {}, name(a) + " ", el("span", {text: counts + when})), el("div", {class: "grid"}, ...items.map(i => card(i, v))));
   }
   if (!shown) main.append(el("div", {class: "empty", text: "Nothing to show for this filter."}));
+  const total = DATA.apps.reduce((n, a) => n + a.items.length, 0);
+  document.getElementById("meta").textContent = total + " files across " + DATA.apps.length + " app" + (DATA.apps.length === 1 ? "" : "s");
 }
-const total = DATA.apps.reduce((n, a) => n + a.items.length, 0);
-document.getElementById("meta").textContent = total + " files · published " + new Date(DATA.built).toLocaleString() + (DATA.commit ? " · " + DATA.branch + " @ " + DATA.commit : "");
+async function load() {
+  try {
+    const t = "?t=" + Date.now();
+    const r = await fetch("apps.json" + t);
+    if (!r.ok) throw 0;
+    const names = (await r.json()).apps || [];
+    const found = await Promise.all(names.map(n => fetch(n + "/manifest.json" + t).then(m => m.ok ? m.json() : null).catch(() => null)));
+    const apps = found.filter(a => a && a.items && a.items.length);
+    if (apps.length) DATA = {apps};
+  } catch (e) { /* opened from disk, or nothing published yet: keep the local build */ }
+  render();
+}
 render();
+load();
 </script>
 </body>
 </html>
@@ -195,20 +211,24 @@ render();
 
 
 def build():
-    data = {
-        "apps": collect(),
-        "built": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+    built = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    stamp = {
+        "built": built,
+        "version": re.sub(r"\D", "", built)[-10:],
         "commit": os.environ.get("GITHUB_SHA", "")[:7] or _git("rev-parse", "--short", "HEAD"),
         "branch": os.environ.get("GITHUB_REF_NAME") or _git("rev-parse", "--abbrev-ref", "HEAD"),
     }
-    data["version"] = re.sub(r"\D", "", data["built"])[-10:]
+    apps = [{**a, **stamp} for a in collect()]
+    for a in apps:
+        with open(os.path.join(OUT, a["app"], "manifest.json"), "w", encoding="utf-8") as f:
+            json.dump(a, f, ensure_ascii=False, indent=1)
     # "</" must not appear inside the inline script, or a caption could end it early.
-    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    payload = json.dumps({"apps": apps}, ensure_ascii=False).replace("</", "<\\/")
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, "index.html")
     with open(path, "w", encoding="utf-8") as f:
         f.write(PAGE.replace("__DATA__", payload))
-    return path, sum(len(a["items"]) for a in data["apps"])
+    return path, sum(len(a["items"]) for a in apps)
 
 
 if __name__ == "__main__":
