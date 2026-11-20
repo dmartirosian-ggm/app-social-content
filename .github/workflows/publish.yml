@@ -29,9 +29,13 @@ jobs:
           python-version: "3.12"
           cache: pip
       - name: Install ffmpeg, Cairo and Python packages
+        timeout-minutes: 6
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg libcairo2
+          APT="sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 -o DPkg::Lock::Timeout=60"
+          $APT update -qq
+          $APT install -y -qq --no-install-recommends ffmpeg libcairo2
           pip install -q -r requirements.txt
       - name: Install each app's fonts
         run: |
