@@ -59,6 +59,10 @@ https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/<app>/pins/<slug>.png
 https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/<app>/captions.md
 ```
 
+**Review dashboard:** every clip and pin, with its caption, on one page:
+https://pub-7639d3eca7d54cc4b5733370bb923e14.r2.dev/index.html
+It is rebuilt on every publish (`python -m engine.dashboard` writes `out/index.html`).
+
 **Automatic:** push a change under `apps/` or `engine/` on any branch. GitHub Actions
 (`.github/workflows/publish.yml`) renders every app and uploads the files, usually within a
 few minutes. The run's summary lists every link. It needs one repository secret,

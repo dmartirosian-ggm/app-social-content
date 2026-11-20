@@ -5,7 +5,8 @@
     python -m engine.upload spark --bucket other-bucket
 
 Uploads out/<app>/** to <bucket>/<app>/..., plus apps/<app>/captions.md, and prints the
-public URL of each file. Needs CLOUDFLARE_API_TOKEN (a Cloudflare API token with
+public URL of each file. With no app named, it also publishes the review dashboard
+(out/index.html, from python -m engine.dashboard) as index.html. Needs CLOUDFLARE_API_TOKEN (a Cloudflare API token with
 "Workers R2 Storage: Edit"). CLOUDFLARE_ACCOUNT_ID is optional; it is looked up if unset.
 """
 import argparse
@@ -77,10 +78,15 @@ def main():
     pairs = [pair for app in apps for pair in files_for(app)]
     if not pairs:
         sys.exit("error: nothing to upload; render first (python apps/<app>/clip.py and pin.py)")
+    dashboard = os.path.join(out_root, "index.html")  # written by: python -m engine.dashboard
+    if not a.apps and os.path.exists(dashboard):
+        pairs.append((dashboard, "index.html"))
     base = f"{API}/accounts/{_account(token)}/r2/buckets/{a.bucket}/objects/"
     public = PUBLIC_BASE.get(a.bucket, f"r2://{a.bucket}")
     for path, key in pairs:
         ctype = mimetypes.guess_type(path)[0] or ("text/markdown" if path.endswith(".md") else "application/octet-stream")
+        if ctype.startswith("text/"):
+            ctype += "; charset=utf-8"
         with open(path, "rb") as f:
             _call("PUT", base + urllib.parse.quote(key), token, f.read(), ctype)
         print(f"{public}/{key}")
