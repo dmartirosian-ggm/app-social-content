@@ -1,0 +1,26 @@
+{
+  "title": "Tip: how to get more Google reviews",
+  "composition": "TipLight",
+  "props": {
+    "title": "How to get more Google reviews",
+    "steps": [
+      {
+        "big": "Ask before you leave the job.",
+        "small": "Ask while the customer is still looking at the finished work."
+      },
+      {
+        "big": "Text them your review link.",
+        "small": "Keep the link from your Google Business Profile saved on your phone."
+      },
+      {
+        "big": "Reply to every review.",
+        "small": "A short thank you is enough."
+      },
+      {
+        "big": "Do it on every job.",
+        "small": "The reviews add up over time."
+      }
+    ],
+    "outro": "We build websites for home service contractors."
+  }
+}

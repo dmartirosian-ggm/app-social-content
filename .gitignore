@@ -12,3 +12,6 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Remotion packages for apps that use it
+node_modules/

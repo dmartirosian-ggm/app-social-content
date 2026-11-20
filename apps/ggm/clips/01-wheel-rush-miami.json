@@ -1,0 +1,93 @@
+{
+  "title": "Wheel Rush Mobile Tire Repair, Miami",
+  "composition": "Ugc",
+  "props": {
+    "client": "Wheel Rush Mobile Tire Repair",
+    "city": "Miami",
+    "chartTitle": "Calls from Google Business Profile",
+    "chartSub": "Phone calls per month \u00b7 Feb 2026 to Aug 2026",
+    "months": [
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug"
+    ],
+    "monthsLong": [
+      "Feb 2026",
+      "Mar 2026",
+      "Apr 2026",
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026"
+    ],
+    "values": [
+      18,
+      24,
+      63,
+      129,
+      122,
+      149,
+      145
+    ],
+    "unit": "calls",
+    "tiles": [
+      {
+        "label": "Calls in Feb 2026",
+        "value": "18",
+        "note": " "
+      },
+      {
+        "label": "Calls in Aug 2026",
+        "value": "145",
+        "note": "+127 vs. February"
+      },
+      {
+        "label": "Profile views in Aug 2026",
+        "value": "4,063",
+        "note": "up from 242 in February"
+      }
+    ],
+    "caps": [
+      {
+        "from": 0,
+        "to": 75,
+        "text": "This is Wheel Rush Mobile Tire Repair in Miami"
+      },
+      {
+        "from": 75,
+        "to": 165,
+        "text": "These are the calls they get from their Google listing"
+      },
+      {
+        "from": 165,
+        "to": 255,
+        "text": "In February it was 18 calls"
+      },
+      {
+        "from": 255,
+        "to": 345,
+        "text": "By August they got 145 calls in one month"
+      },
+      {
+        "from": 345,
+        "to": 435,
+        "text": "We run their SEO and Google Ads"
+      },
+      {
+        "from": 435,
+        "to": 520,
+        "text": "Want to see what we'd do for your business?"
+      },
+      {
+        "from": 520,
+        "to": 600,
+        "text": "galaxygrowthmedia.com"
+      }
+    ],
+    "duration": 600
+  }
+}
