@@ -1,0 +1,50 @@
+{
+  "title": "K31 Mobile Tire, East Hartford (map rankings)",
+  "composition": "MapGrid",
+  "props": {
+    "client": "K31 Mobile Tire And Roadside Assistance",
+    "keyword": "mobile tire repair east hartford",
+    "top3": 49,
+    "total": 49,
+    "avgRank": "1.02",
+    "scanDate": "Nov 16, 2026",
+    "extra": [
+      {
+        "label": "\"mobile tire repair near me\"",
+        "value": "Top 3 in 46 of 49"
+      },
+      {
+        "label": "Average rank",
+        "value": "1.22"
+      }
+    ],
+    "caps": [
+      {
+        "from": 0,
+        "to": 80,
+        "text": "This is K31 Mobile Tire and Roadside Assistance in East Hartford"
+      },
+      {
+        "from": 80,
+        "to": 190,
+        "text": "We checked 49 spots around their area on Google Maps"
+      },
+      {
+        "from": 190,
+        "to": 300,
+        "text": "For mobile tire repair east hartford, they're top 3 in all 49"
+      },
+      {
+        "from": 300,
+        "to": 380,
+        "text": "For mobile tire repair near me, it's 46 of 49"
+      },
+      {
+        "from": 380,
+        "to": 440,
+        "text": "galaxygrowthmedia.com"
+      }
+    ],
+    "duration": 440
+  }
+}

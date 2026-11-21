@@ -1,0 +1,101 @@
+{
+  "title": "King Of Kings Fence, Dallas (page 1 first)",
+  "composition": "Ugc",
+  "props": {
+    "client": "King Of Kings Fence",
+    "city": "Dallas",
+    "chartTitle": "Clicks from Google search",
+    "chartSub": "Google Search Console \u00b7 Dec 2025 to Jul 2026",
+    "months": [
+      "Dec",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul"
+    ],
+    "monthsLong": [
+      "Dec 2025",
+      "Jan 2026",
+      "Feb 2026",
+      "Mar 2026",
+      "Apr 2026",
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026"
+    ],
+    "values": [
+      59,
+      58,
+      83,
+      109,
+      130,
+      103,
+      118,
+      112
+    ],
+    "unit": "clicks",
+    "tiles": [
+      {
+        "label": "Clicks in Dec 2025",
+        "value": "59",
+        "note": " "
+      },
+      {
+        "label": "Clicks in Jul 2026",
+        "value": "112",
+        "note": "+53 vs. December"
+      },
+      {
+        "label": "Searches on page 1, Jul 2026",
+        "value": "464",
+        "note": "up from 339 in December"
+      }
+    ],
+    "caps": [
+      {
+        "from": 0,
+        "to": 90,
+        "text": "This fence company went from 339 to 464 searches on page 1 of Google"
+      },
+      {
+        "from": 90,
+        "to": 165,
+        "text": "It's King Of Kings Fence in Dallas"
+      },
+      {
+        "from": 165,
+        "to": 255,
+        "text": "Clicks from Google went from 59 in December"
+      },
+      {
+        "from": 255,
+        "to": 345,
+        "text": "to 112 in July, with 130 in April"
+      },
+      {
+        "from": 345,
+        "to": 440,
+        "text": "Page 1 for 464 searches by July, up from 339"
+      },
+      {
+        "from": 440,
+        "to": 525,
+        "text": "We run their SEO and Google Ads"
+      },
+      {
+        "from": 525,
+        "to": 605,
+        "text": "Want to see what we'd do for your business?"
+      },
+      {
+        "from": 605,
+        "to": 680,
+        "text": "galaxygrowthmedia.com"
+      }
+    ],
+    "duration": 680
+  }
+}

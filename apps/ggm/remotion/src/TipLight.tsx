@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Sequence, useCurrentFrame, interpolate, spring, useVideoConfig} from 'remotion';
 import {G, HEAD, BODY, Logo} from './ggm';
-export type TipProps = {title: string; steps: {big: string; small: string}[]; outro: string};
+export type TipProps = {title: string; steps: {big: string; small: string}[]; outro: string; eyebrow?: string};
 
 const SCENE = 105;
 const useIn = (d = 0) => {
@@ -24,14 +24,14 @@ const Bg: React.FC = () => (
   </AbsoluteFill>
 );
 
-const Title: React.FC<{text: string}> = ({text}) => {
+const Title: React.FC<{text: string; eyebrow: string}> = ({text, eyebrow}) => {
   const a = useIn(0);
   const words = text.split(' ');
   const hl = words.slice(-2).join(' ');
   const rest = words.slice(0, -2).join(' ');
   return (
     <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', padding: 80, textAlign: 'center'}}>
-      <div style={{...a, color: G.purple, fontFamily: HEAD, fontWeight: 700, fontSize: 38, letterSpacing: 6, marginBottom: 36}}>CONTRACTOR TIP</div>
+      <div style={{...a, color: G.purple, fontFamily: HEAD, fontWeight: 700, fontSize: 38, letterSpacing: 6, marginBottom: 36}}>{eyebrow}</div>
       <div style={{...a, color: G.navy, fontFamily: HEAD, fontWeight: 800, fontSize: 96, lineHeight: 1.15}}>
         {rest}{' '}
         <span style={{background: grad, color: '#fff', padding: '0 18px', borderRadius: 14, boxDecorationBreak: 'clone', WebkitBoxDecorationBreak: 'clone'}}>{hl}</span>
@@ -71,7 +71,7 @@ export const TipLight: React.FC<TipProps> = (p) => (
   <AbsoluteFill>
     <Bg />
     <div style={{position: 'absolute', top: 110, left: 0, right: 0, display: 'flex', justifyContent: 'center'}}><Logo height={64} /></div>
-    <Sequence durationInFrames={SCENE}><Fade><Title text={p.title} /></Fade></Sequence>
+    <Sequence durationInFrames={SCENE}><Fade><Title text={p.title} eyebrow={p.eyebrow ?? 'CONTRACTOR TIP'} /></Fade></Sequence>
     {p.steps.map((s, i) => (
       <Sequence key={i} from={SCENE * (i + 1)} durationInFrames={SCENE}><Fade><Step n={i + 1} total={p.steps.length} big={s.big} small={s.small} /></Fade></Sequence>
     ))}

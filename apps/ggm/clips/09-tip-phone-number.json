@@ -1,0 +1,22 @@
+{
+  "title": "Tip: make your phone number easy to call",
+  "composition": "TipLight",
+  "props": {
+    "title": "Make your phone number easy to call",
+    "steps": [
+      {
+        "big": "Put it at the top of every page.",
+        "small": "Customers shouldn't have to scroll to find it."
+      },
+      {
+        "big": "Make it tap to call.",
+        "small": "On a phone, tapping the number should start the call."
+      },
+      {
+        "big": "Test it on your own phone.",
+        "small": "Open your site and tap the number. It takes ten seconds."
+      }
+    ],
+    "outro": "We build websites for home service contractors."
+  }
+}

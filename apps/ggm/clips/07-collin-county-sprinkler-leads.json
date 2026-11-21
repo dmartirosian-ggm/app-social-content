@@ -1,0 +1,65 @@
+{
+  "title": "Collin County Sprinkler (leads by month)",
+  "composition": "PhoneStat",
+  "props": {
+    "client": "Collin County Sprinkler",
+    "period": "Tracked leads by month",
+    "months": [
+      {
+        "label": "September 2026",
+        "rows": [
+          {
+            "label": "Leads",
+            "value": 19
+          },
+          {
+            "label": "Jobs won",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "label": "October 2026",
+        "rows": [
+          {
+            "label": "Leads",
+            "value": 33
+          },
+          {
+            "label": "Jobs won",
+            "value": 15
+          }
+        ]
+      }
+    ],
+    "note": "From the GGM dashboard. Leads are website forms and tracked calls.",
+    "caps": [
+      {
+        "from": 0,
+        "to": 80,
+        "text": "This is Collin County Sprinkler, an irrigation company in the Dallas area"
+      },
+      {
+        "from": 80,
+        "to": 180,
+        "text": "In September they got 19 leads and won 3 jobs"
+      },
+      {
+        "from": 180,
+        "to": 300,
+        "text": "In October they got 33 leads and won 15 jobs"
+      },
+      {
+        "from": 300,
+        "to": 390,
+        "text": "We run their SEO and Google Ads"
+      },
+      {
+        "from": 390,
+        "to": 450,
+        "text": "galaxygrowthmedia.com"
+      }
+    ],
+    "duration": 450
+  }
+}

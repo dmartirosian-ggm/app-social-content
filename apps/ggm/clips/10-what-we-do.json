@@ -1,0 +1,31 @@
+{
+  "title": "What we do every month",
+  "composition": "TipLight",
+  "props": {
+    "eyebrow": "HOW WE HELP",
+    "title": "Here's what we do every month",
+    "steps": [
+      {
+        "big": "A website built for your trade.",
+        "small": "A page for every service you offer and every city you work in."
+      },
+      {
+        "big": "New blog posts.",
+        "small": "Written about what homeowners in your area search for."
+      },
+      {
+        "big": "Posts on your Google Business Profile.",
+        "small": "Every week, so you never have to log in."
+      },
+      {
+        "big": "Review requests after each job.",
+        "small": "They go out on their own when the work is done."
+      },
+      {
+        "big": "A text when a lead comes in.",
+        "small": "Every call and form is tracked."
+      }
+    ],
+    "outro": "Month to month, with no long-term contract."
+  }
+}

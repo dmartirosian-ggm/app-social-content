@@ -1,0 +1,26 @@
+{
+  "title": "Tip: set your holiday hours on Google",
+  "composition": "TipLight",
+  "props": {
+    "title": "Set your holiday hours on Google",
+    "steps": [
+      {
+        "big": "Open your Google Business Profile.",
+        "small": "Search your business name on Google while you're signed in."
+      },
+      {
+        "big": "Add special hours.",
+        "small": "Pick Thanksgiving and enter the hours you'll work, or mark it closed."
+      },
+      {
+        "big": "Do the rest of the season too.",
+        "small": "Christmas Eve, Christmas Day and New Year's Day."
+      },
+      {
+        "big": "Customers know when to call.",
+        "small": "Nobody calls a company Google says is open and gets no answer."
+      }
+    ],
+    "outro": "We build websites for home service contractors."
+  }
+}
