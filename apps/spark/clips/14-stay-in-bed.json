@@ -1,0 +1,12 @@
+{
+  "slug": "14-stay-in-bed",
+  "habit": "Stay in bed",
+  "icon": "sleep",
+  "tip": "Staying in bed until the clock turns green earns the first star of the morning.",
+  "done": "Ruby stayed in bed until morning every night this week.",
+  "child": {
+    "name": "Ruby",
+    "color": "#A8DADC"
+  },
+  "days_done": 7
+}

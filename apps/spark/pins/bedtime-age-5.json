@@ -1,0 +1,36 @@
+{
+  "slug": "bedtime-age-5",
+  "kind": "bedtime",
+  "title": "Bedtime routine\nfor a 5 year old",
+  "subtitle": "Get tomorrow ready first, then wind down for the night.",
+  "steps": [
+    [
+      "Tidy up toys",
+      "toys"
+    ],
+    [
+      "Pack backpack",
+      "backpack"
+    ],
+    [
+      "Bath time",
+      "bath"
+    ],
+    [
+      "Pajamas on",
+      "shirt"
+    ],
+    [
+      "Brush teeth",
+      "tooth"
+    ],
+    [
+      "Bedtime story",
+      "book"
+    ],
+    [
+      "Lights out",
+      "sleep"
+    ]
+  ]
+}

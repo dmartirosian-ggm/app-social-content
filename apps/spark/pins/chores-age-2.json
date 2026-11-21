@@ -1,0 +1,24 @@
+{
+  "slug": "chores-age-2",
+  "kind": "chores",
+  "title": "Chore chart\nfor a 2 year old",
+  "subtitle": "Little jobs a two year old can really do, with a star for each one.",
+  "steps": [
+    [
+      "Toys in the bin",
+      "toys"
+    ],
+    [
+      "Clothes to hamper",
+      "shirt"
+    ],
+    [
+      "Shoes by the door",
+      "shoes"
+    ],
+    [
+      "Wipe up spills",
+      "hands"
+    ]
+  ]
+}

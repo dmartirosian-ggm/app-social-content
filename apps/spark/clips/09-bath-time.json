@@ -1,0 +1,12 @@
+{
+  "slug": "09-bath-time",
+  "habit": "Bath time",
+  "icon": "bath",
+  "tip": "Bath is at the same time every night, and Zoe picks one toy to bring in.",
+  "done": "Zoe had a calm bath every night this week.",
+  "child": {
+    "name": "Zoe",
+    "color": "#A8DADC"
+  },
+  "days_done": 7
+}

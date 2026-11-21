@@ -13,7 +13,7 @@ apps/spark/      Spark: Chore & Reward Chart
   pin.py           the weekly routine chart pin
   clips/*.json     one file per video
   pins/*.json      one file per pin
-  captions.md      captions, hashtags and pin text for the first week
+  captions.md      captions, hashtags and pin text for each week
   fonts/           the app's fonts
 out/             finished files land here (not saved in git)
 ```

@@ -1,0 +1,32 @@
+{
+  "slug": "chores-age-4",
+  "kind": "chores",
+  "title": "Chore chart\nfor a 4 year old",
+  "subtitle": "Six easy jobs that help the whole family.",
+  "steps": [
+    [
+      "Tidy up toys",
+      "toys"
+    ],
+    [
+      "Make the bed",
+      "sleep"
+    ],
+    [
+      "Clothes to hamper",
+      "shirt"
+    ],
+    [
+      "Help set the table",
+      "bowl"
+    ],
+    [
+      "Water the plants",
+      "water"
+    ],
+    [
+      "Put books away",
+      "book"
+    ]
+  ]
+}

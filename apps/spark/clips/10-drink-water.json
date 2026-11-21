@@ -1,0 +1,12 @@
+{
+  "slug": "10-drink-water",
+  "habit": "Drink water",
+  "icon": "water",
+  "tip": "Rosie's cup sits where it's easy to reach, and an empty cup by lunch earns a star.",
+  "done": "Rosie finished a cup of water every day this week.",
+  "child": {
+    "name": "Rosie",
+    "color": "#7FD1AE"
+  },
+  "days_done": 7
+}

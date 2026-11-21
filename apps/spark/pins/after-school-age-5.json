@@ -1,0 +1,32 @@
+{
+  "slug": "after-school-age-5",
+  "kind": "afternoon",
+  "title": "After school routine\nfor a 5 year old",
+  "subtitle": "Unpack, snack, then free play until dinner.",
+  "steps": [
+    [
+      "Shoes away",
+      "shoes"
+    ],
+    [
+      "Empty backpack",
+      "backpack"
+    ],
+    [
+      "Wash hands",
+      "hands"
+    ],
+    [
+      "Have a snack",
+      "bowl"
+    ],
+    [
+      "Drink water",
+      "water"
+    ],
+    [
+      "Play time",
+      "toys"
+    ]
+  ]
+}

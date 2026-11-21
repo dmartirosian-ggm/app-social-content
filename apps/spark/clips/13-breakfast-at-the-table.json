@@ -1,0 +1,12 @@
+{
+  "slug": "13-breakfast-at-the-table",
+  "habit": "Eat breakfast at the table",
+  "icon": "bowl",
+  "tip": "Breakfast happens at the table with the TV off, and everyone sits down together.",
+  "done": "Jack ate breakfast at the table every morning this week.",
+  "child": {
+    "name": "Jack",
+    "color": "#FFC93C"
+  },
+  "days_done": 7
+}

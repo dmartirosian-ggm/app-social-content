@@ -1,0 +1,24 @@
+{
+  "slug": "after-school-age-3",
+  "kind": "afternoon",
+  "title": "After preschool\nroutine for a 3 year old",
+  "subtitle": "Four steps between pickup and playtime.",
+  "steps": [
+    [
+      "Shoes off",
+      "shoes"
+    ],
+    [
+      "Wash hands",
+      "hands"
+    ],
+    [
+      "Have a snack",
+      "bowl"
+    ],
+    [
+      "Drink water",
+      "water"
+    ]
+  ]
+}

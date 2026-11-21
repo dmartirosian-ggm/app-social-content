@@ -1,0 +1,36 @@
+{
+  "slug": "morning-age-5",
+  "kind": "morning",
+  "title": "Morning routine\nfor a 5 year old",
+  "subtitle": "Seven steps for kindergarten mornings, with a star for each one.",
+  "steps": [
+    [
+      "Use the potty",
+      "potty"
+    ],
+    [
+      "Get dressed",
+      "shirt"
+    ],
+    [
+      "Eat breakfast",
+      "bowl"
+    ],
+    [
+      "Brush teeth",
+      "tooth"
+    ],
+    [
+      "Drink water",
+      "water"
+    ],
+    [
+      "Put on shoes",
+      "shoes"
+    ],
+    [
+      "Pack backpack",
+      "backpack"
+    ]
+  ]
+}

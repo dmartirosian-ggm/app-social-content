@@ -1,0 +1,12 @@
+{
+  "slug": "12-say-please",
+  "habit": "Say please and thank you",
+  "icon": "kind",
+  "tip": "We don't make a big deal of it. Nora gets a star the first time each day it comes without a reminder.",
+  "done": "Nora said please and thank you every day this week.",
+  "child": {
+    "name": "Nora",
+    "color": "#C9B8FF"
+  },
+  "days_done": 7
+}

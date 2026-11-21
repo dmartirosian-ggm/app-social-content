@@ -1,0 +1,12 @@
+{
+  "slug": "11-pack-backpack",
+  "habit": "Pack backpack",
+  "icon": "backpack",
+  "tip": "We pack the backpack after dinner, so school mornings are calmer.",
+  "done": "Max had a packed backpack every school morning this week.",
+  "child": {
+    "name": "Max",
+    "color": "#FFB4A2"
+  },
+  "days_done": 7
+}

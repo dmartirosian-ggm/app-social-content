@@ -5,7 +5,7 @@
 Pin JSON:
 {
   "slug": "morning-age-3",
-  "kind": "morning",                    # "morning" or "bedtime" (sets the colors)
+  "kind": "morning",                    # "morning", "bedtime", "chores" or "afternoon" (sets the colors)
   "title": "Morning routine for a 3 year old",
   "subtitle": "One sentence under the title.",
   "steps": [["Use the potty", "potty"], ["Get dressed", "shirt"], ...]   # label, app icon
@@ -25,6 +25,8 @@ DAYS = ["M", "T", "W", "T", "F", "S", "S"]
 THEME = {
     "morning": {"bg": C["butter"], "blob": "#FFE59A", "pill": "Morning routine", "pill_icon": "sun"},
     "bedtime": {"bg": C["lilac"], "blob": "#D9CEFF", "pill": "Bedtime routine", "pill_icon": "sleep"},
+    "chores": {"bg": C["mint"], "blob": "#BFE8D4", "pill": "Chore chart", "pill_icon": "check"},
+    "afternoon": {"bg": C["peach"], "blob": "#FFCDBC", "pill": "After school", "pill_icon": "backpack"},
 }
 
 

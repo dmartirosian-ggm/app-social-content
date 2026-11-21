@@ -1,0 +1,12 @@
+{
+  "slug": "08-put-on-shoes",
+  "habit": "Put on shoes",
+  "icon": "shoes",
+  "tip": "Shoes stay by the front door, so Theo always knows where to find them.",
+  "done": "Theo put shoes on without help every day this week.",
+  "child": {
+    "name": "Theo",
+    "color": "#FFC93C"
+  },
+  "days_done": 7
+}
